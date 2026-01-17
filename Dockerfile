@@ -43,4 +43,4 @@ COPY --from=builder /app/prisma ./prisma
 EXPOSE 3000
 
 # Command to run the application
-CMD ["yarn", "start"] 
+CMD ["sh", "-c", "npx prisma migrate deploy --schema /app/prisma/schema.prisma && yarn start"] 
